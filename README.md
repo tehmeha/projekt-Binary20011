@@ -1,5 +1,5 @@
 # naziv projekta
 - projetnik zadatak SSSS Tehmeha
-- team members: Ime Prezime
+- team members: Ivo Grgin
 - programming language: C++
-- description: Opis
+- description: Encryption and decryption program
