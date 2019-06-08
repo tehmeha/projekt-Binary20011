@@ -21,13 +21,14 @@ int main()
     int iter=0;
     int temp=0;
     int brojac=0;
+    int buffer;
     string encripted;
     string decripted;
     ifstream datoteka;
     string tekst;
     //datoteka.open("test.txt",ios::binary);
     //getline(datoteka,tekst);
-    cin>>tekst;
+    tekst="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec tempor elit, eu blandit diam. Aliquam varius scelerisque orci, ac faucibus lorem. Sed sed interdum eros.";
     cout<<"text: "<<tekst<<endl;
     string tekstBinarni=TextToBinaryString(tekst);
     string decriptedbinary;
@@ -36,7 +37,7 @@ int main()
     vector<int>asciiNumbers;
     //cout<<"tekst u binarnom obliku: "<<tekstBinarni<<endl;
 
-    for (int i=0; i<tekst.size()+1; i++)
+    for (int i=0; i<=tekst.size(); i++)
     {
         for (int j=5+iter; j>=0+iter; j--)
         {
@@ -45,21 +46,26 @@ int main()
         iter+=6;
     }
     //cout<<"Brojevi iz 6-bita: ";
-    for (int i=0; i<tekst.size()+1; i++)
+    for (int i=0; i<=tekst.size(); i++)
     {
         for (int j=0; j<asciiNumberstring[i].length(); j++)
         {
             if(asciiNumberstring[i][j]=='1')
             {
+                buffer=j;
                 temp+=pow(2,j);
             }
         }
         //cout<<temp<<" ";
-        asciiNumbers.push_back(temp);
-        temp=0;
+        if(asciiNumberstring[i][buffer]=='1')
+        {
+            asciiNumbers.push_back(temp);
+            temp=0;
+        }
     }
+    temp=0;
     //cout<<endl;
-    for (int i=0; i<tekst.size()+1; i++)
+    for (int i=0; i<=asciiNumbers.size(); i++)
     {
         for (int j=0; j<64; j++)
         {
